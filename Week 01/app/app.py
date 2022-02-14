@@ -9,7 +9,7 @@ df_books = pd.read_csv('../data/BX-Books.csv', sep=';', encoding='latin-1')
 
 # select a book to kickstart the interface
 if 'ISBN' not in st.session_state:
-  st.session_state['ISBN'] = '0451519841'
+  st.session_state['ISBN'] = '0385504209'
 
 df_book = df_books[df_books['ISBN'] == st.session_state['ISBN']]
 
@@ -29,7 +29,6 @@ with info:
 st.subheader('Recommendations based most reviewed')
 df = pd.read_csv('recommendations/recommendations-most-reviewed.csv', sep=';', encoding='latin-1', dtype=object)
 df = df.merge(df_books, on='ISBN')
-print(df)
 t.recommendations(df)
 
 st.subheader('Recommendations based on average rating')
@@ -57,4 +56,3 @@ t.recommendations(df)
 # df_recommendations = df_recommendations.rename(columns={"target": "ISBN"})
 # df_recommendations = df_recommendations.merge(df_books, on='ISBN')
 # t.recommendations(df_recommendations)
-
