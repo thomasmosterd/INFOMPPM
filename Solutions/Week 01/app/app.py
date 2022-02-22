@@ -57,4 +57,3 @@ df_recommendations = df[df['source'] == isbn].sort_values(by='confidence', ascen
 df_recommendations = df_recommendations.rename(columns={"target": "ISBN"})
 df_recommendations = df_recommendations.merge(df_books, on='ISBN')
 t.recommendations(df_recommendations)
-
